@@ -1,0 +1,200 @@
+{
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(npx:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet test:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)",
+      "Bash(git stash:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)",
+      "Bash(docker run:*)",
+      "Bash(docker exec:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker start:*)",
+      "Bash(docker stop:*)",
+      "Bash(docker rm:*)",
+      "Bash(brew services:*)",
+      "Bash(brew list:*)",
+      "Bash(mongosh:*)",
+      "Bash(curl:*)",
+      "Bash(unzip:*)",
+      "Bash(7z:*)",
+      "Bash(pwsh:*)",
+      "Bash(claude mcp:*)",
+      "Bash(defaults read:*)",
+      "Bash(zsh --version)",
+      "Read(//tmp/**)",
+      "Read(//opt/homebrew/etc/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/etc/**)",
+      "Read(//usr/local/bin/**)",
+      "WebFetch(domain:docs.dhtmlx.com)",
+      "WebFetch(domain:www.infragistics.com)",
+      "Skill(update-config)"
+    ],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/.dev.vars*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Grep(**/.env*)",
+      "Grep(**/.aws/**)",
+      "Grep(**/.ssh/**)",
+      "Grep(**/secrets/**)",
+      "Write(**/.env*)",
+      "Write(**/.ssh/**)",
+      "Write(**/secrets/**)",
+      "Bash(cat *.env*)",
+      "Bash(cat *secrets*)",
+      "Bash(printenv)",
+      "Bash(env)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | sh)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "claude-opus-4-6",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/fexxdev/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "mempalace@mempalace": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "mempalace": {
+      "source": {
+        "source": "github",
+        "repo": "milla-jovovich/mempalace"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "autoCompactWindow": 200000,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
+}

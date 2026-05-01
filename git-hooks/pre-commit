@@ -1,0 +1,33 @@
+#!/bin/bash
+
+PATTERNS=(
+  'sk-ant-'
+  'sk-live-'
+  'sk_live_'
+  'ghp_'
+  'gho_'
+  'AKIA'
+  'xox[bpors]-'
+  'SG\.'
+  'eyJ'
+  'BEGIN.*PRIVATE KEY'
+)
+
+BLOCKED_FILES=('.env' 'credentials.json' 'id_rsa' '*.pem' '*.key')
+
+for pattern in "${PATTERNS[@]}"; do
+  if git diff --cached --diff-filter=ACM | grep -qE "$pattern"; then
+    echo "BLOCKED: Found potential secret matching '$pattern'"
+    echo "Remove the secret and try again."
+    exit 1
+  fi
+done
+
+for file in "${BLOCKED_FILES[@]}"; do
+  if git diff --cached --name-only | grep -q "$file"; then
+    echo "BLOCKED: Attempted to commit sensitive file: $file"
+    exit 1
+  fi
+done
+
+exit 0
