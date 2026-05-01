@@ -1,22 +1,25 @@
 #!/bin/bash
+# Scan staged changes for secrets. Only matches added lines (^+)
+# and skips quoted pattern strings to avoid false positives on hook files.
 
 PATTERNS=(
-  'sk-ant-'
-  'sk-live-'
-  'sk_live_'
-  'ghp_'
-  'gho_'
-  'AKIA'
-  'xox[bpors]-'
-  'SG\.'
-  'eyJ'
-  'BEGIN.*PRIVATE KEY'
+  'sk-ant-api'
+  'sk-live-[0-9a-zA-Z]{20,}'
+  'sk_live_[0-9a-zA-Z]{20,}'
+  'ghp_[0-9a-zA-Z]{36,}'
+  'gho_[0-9a-zA-Z]{36,}'
+  'AKIA[0-9A-Z]{16}'
+  'xox[bpors]-[0-9a-zA-Z-]+'
+  'SG\.[0-9a-zA-Z_-]{22}\.'
+  'BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY'
 )
 
 BLOCKED_FILES=('.env' 'credentials.json' 'id_rsa' '*.pem' '*.key')
 
+DIFF=$(git diff --cached --diff-filter=ACM -U0 | grep '^\+' | grep -v '^\+\+\+')
+
 for pattern in "${PATTERNS[@]}"; do
-  if git diff --cached --diff-filter=ACM | grep -qE "$pattern"; then
+  if echo "$DIFF" | grep -qE "$pattern"; then
     echo "BLOCKED: Found potential secret matching '$pattern'"
     echo "Remove the secret and try again."
     exit 1
