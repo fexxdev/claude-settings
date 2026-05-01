@@ -14,7 +14,13 @@ PATTERNS=(
   'BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY'
 )
 
-BLOCKED_FILES=('.env' 'credentials.json' 'id_rsa' '*.pem' '*.key')
+BLOCKED_PATTERNS=(
+  '(^|/)\.env(\..+)?$'
+  '(^|/)credentials\.json$'
+  '(^|/)id_rsa$'
+  '\.pem$'
+  '\.key$'
+)
 
 DIFF=$(git diff --cached --diff-filter=ACM -U0 | grep '^\+' | grep -v '^\+\+\+')
 
@@ -26,9 +32,11 @@ for pattern in "${PATTERNS[@]}"; do
   fi
 done
 
-for file in "${BLOCKED_FILES[@]}"; do
-  if git diff --cached --name-only | grep -q "$file"; then
-    echo "BLOCKED: Attempted to commit sensitive file: $file"
+STAGED_FILES=$(git diff --cached --name-only)
+for pattern in "${BLOCKED_PATTERNS[@]}"; do
+  match=$(echo "$STAGED_FILES" | grep -E "$pattern")
+  if [ -n "$match" ]; then
+    echo "BLOCKED: Attempted to commit sensitive file: $match"
     exit 1
   fi
 done
