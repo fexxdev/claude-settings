@@ -1,0 +1,35 @@
+# Secrets & credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+credentials.json
+service-account*.json
+**/secrets/
+**/credentials/
+
+# SSH
+.ssh/
+id_rsa*
+id_ed25519*
+known_hosts
+
+# API keys & tokens
+*.token
+*.secret
+auth.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/

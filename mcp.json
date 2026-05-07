@@ -8,7 +8,7 @@
       "command": "npx",
       "args": ["-y", "igniteui-theming", "igniteui-theming-mcp"]
     },
-    "dhtmlx-gantt": {
+    "dhtmlx-mcp": {
       "type": "http",
       "url": "https://docs.dhtmlx.com/mcp"
     }
