@@ -1,0 +1,20 @@
+{
+  "Ledges": {
+    "igniteui-cli": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "igniteui-cli", "mcp"]
+    },
+    "igniteui-theming": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "igniteui-theming", "igniteui-theming-mcp"]
+    }
+  },
+  "Jarvis": {
+    "dhtmlx-gantt": {
+      "type": "http",
+      "url": "https://docs.dhtmlx.com/mcp"
+    }
+  }
+}
