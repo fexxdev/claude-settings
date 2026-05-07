@@ -145,6 +145,10 @@
           {
             "type": "command",
             "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          },
+          {
+            "type": "command",
+            "command": "mempalace hook run --hook stop --harness claude-code"
           }
         ]
       }
@@ -156,6 +160,10 @@
           {
             "type": "command",
             "command": "\"/Users/fexxdev/Library/Application Support/GitKrakenCLI/gk\" ai hook run --host claude-code"
+          },
+          {
+            "type": "command",
+            "command": "mempalace hook run --hook session-start --harness claude-code"
           }
         ]
       }
