@@ -1,14 +1,5 @@
 {
   "mcpServers": {
-    "tolaria": {
-      "args": [
-        "/Applications/Tolaria.app/Contents/Resources/mcp-server/index.js"
-      ],
-      "command": "node",
-      "env": {
-        "VAULT_PATH": "/Users/fexxdev/Desktop/Dev/Tolaria"
-      }
-    },
     "igniteui-cli": {
       "command": "npx",
       "args": ["-y", "igniteui-cli", "mcp"]
@@ -16,6 +7,10 @@
     "igniteui-theming": {
       "command": "npx",
       "args": ["-y", "igniteui-theming", "igniteui-theming-mcp"]
+    },
+    "dhtmlx-gantt": {
+      "type": "http",
+      "url": "https://docs.dhtmlx.com/mcp"
     }
   }
 }
